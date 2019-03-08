@@ -1,0 +1,284 @@
+<%include ../partials/assets2/header%>
+<%include ../partials/assets2/sidebar%>
+
+<!--start of main content-->
+<div class="main-content">
+    <%include ../partials/assets2/navbar.ejs%>
+    <%include ../partials/assets2/stats_card.ejs%>
+    <!--start of page content-->
+    <div class="container-fluid mt--7">
+        <!--for multiple type view options-->
+        <div class="row mb-2" align="center">
+            <div class="col-xl-4 col-lg-8 " >
+                <div class="mb-4 mb-xl-0" >
+                    <button type="button" class="btn btn-outline-info">Brief</button>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-8" >
+                <div class="mb-4 mb-xl-0">
+                    <button type="button" class="active btn btn-outline-success">Tabular</button>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-8" >
+                <div class="mb-4 mb-xl-0" >
+                    <button type="button" class="btn btn-outline-warning">Detailed</button>
+                </div>
+            </div>
+        </div>
+
+        <%var i =0
+            page.body.forEach(function(college){
+             i++;%>
+            <%if(i%2!=0){ %>
+                <!--table 1-->
+                <div class="row mb-5">
+                    <div class="col">
+                        <div class="card shadow">
+                            <!--table name-->
+                            <div class="card-header border-0">
+                                <h3 class="mb-0"><%=college.name%> | <%=college.code%></h3>
+                                <p class="card-text"><%=college.description%></p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <!--table headers-->
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">No of Courses</th>
+                                        <th scope="col">Principal</th>
+                                        <th scope="col">Organiser</th>
+                                        <th scope="col">Users</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="media align-items-center">
+                                                <a href="#" class="avatar rounded-circle mr-3">
+                                                    <img alt="Image placeholder" src="../assets2/img/theme/bootstrap.jpg">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span class="mb-0 text-sm">MCA</span>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            Dr. Sumit Mittal
+                                        </td>
+                                        <td>
+                                            Rajbir
+                                        </td>
+                                        <td>
+                                            <div class="media-body">
+                                                <strong>328</strong>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="#">Show Brief</a>
+                                                    <!--<a class="dropdown-item" href="#"></a>-->
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="media align-items-center">
+                                                <a href="#" class="avatar rounded-circle mr-3">
+                                                    <img alt="Image placeholder" src="../assets2/img/theme/angular.jpg">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span class="mb-0 text-sm">MBA</span>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            < unknown >
+                                        </td>
+                                        <td>
+                                            < unknown >
+                                        </td>
+                                        <td>
+                                            <div class="media-body">
+                                                <strong>221</strong>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="#">Show Brief</a>
+                                                    <!--<a class="dropdown-item" href="#"></a>-->
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="card-footer border-0">
+                                    <%var add = college.address.add +", " + college.address.city + ", " + college.address.state + " -" + college.address.areaCode + ", " + college.address.country;%>
+                                    <p class="card-text"><%=add%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}else{%>
+                <!--table 2-->
+                <div class="row mb-5">
+                    <div class="col">
+                        <div class="card bg-default shadow">
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="text-white mb-0"><%=college.name%> | <%=college.code%></h3>
+                                <p class="card-text text-gray"><%=college.description%></p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-dark table-flush">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Department</th>
+                                            <th scope="col">No of Courses</th>
+                                            <th scope="col">Principal</th>
+                                            <th scope="col">Organiser</th>
+                                            <th scope="col">Users</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <a href="#" class="avatar rounded-circle mr-3">
+                                                        <img alt="Image placeholder" src="../assets2/img/theme/sketch.jpg">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">BTECH</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                683
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Show Brief</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <a href="#" class="avatar rounded-circle mr-3">
+                                                        <img alt="Image placeholder" src="../assets2/img/theme/react.jpg">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">MTECH</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                121
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Show Brief</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="media align-items-center">
+                                                    <a href="#" class="avatar rounded-circle mr-3">
+                                                        <img alt="Image placeholder" src="../assets2/img/theme/vue.jpg">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <span class="mb-0 text-sm">Science</span>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                < unknown >
+                                            </td>
+                                            <td>
+                                                243
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Show Brief</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="card-footer bg-transparent border-0">
+                                    <%var add = college.address.add +", " + college.address.city + ", " + college.address.state + " -" + college.address.areaCode + ", " + college.address.country;%>
+                                    <p class="card-text text-gray"><%=add%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}});%>
+        <%include ../partials/assets2/footer.ejs%>
+    </div>
+</div>
+<!--end of main content-->
+<%include ../partials/assets2/ender.ejs%>

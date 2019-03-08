@@ -1,0 +1,31 @@
+<%include ../partials/assets2/header%>
+<%include ../partials/assets2/sidebar%>
+
+<!--start of main content-->
+<div class="main-content">
+    <%include ../partials/assets2/navbar.ejs%>
+    <%include ../partials/assets2/stats_card.ejs%>
+    <!--start of page content-->
+    <div class="container-fluid mt--7">
+        <div class="row justify-content-center">
+            <%page.body.forEach(function(college){%>
+                <div class="col-auto mb-3">
+                    <div class="card text-justify" style="width: 18rem;" >
+                        <img class="card-img-top" src="./assets2/img/theme/profile-cover.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="text-left card-title text-muted mb-0"><%=college.name%></h5>
+                            <span class="h2 text-uppercase  font-weight-bold mb-0"><%=college.code%></span>
+                            <p class="card-text"><%=college.description%></p>
+                            <p class="card-text"><%=college.address.add%></p>
+                            <p class="card-text"><%=college.address.country%></p>
+                            <a href="#" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+        <%include ../partials/assets2/footer.ejs%>
+    </div>
+</div>
+<!--end of main content-->
+<%include ../partials/assets2/ender.ejs%>

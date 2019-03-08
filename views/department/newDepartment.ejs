@@ -1,0 +1,84 @@
+<%include ../partials/assets2/header%>
+<%include ../partials/assets2/sidebar%>
+
+<!--start of main content-->
+<div class="main-content">
+    <%include ../partials/assets2/navbar.ejs%>
+    <%include ../partials/assets2/stats_card.ejs%>
+    <!--start of page content-->
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <!--beginning of the card-->
+            <div class="col">
+                <!--card shadow-->
+                <div class="card bg-secondary shadow">
+                    <!--card header-->
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Create New Department</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="/admin" class="btn btn-sm btn-outline-warning">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card Body-->
+                    <div class="card-body">
+                        <!--start of form-->
+                        <form role="form" action="/newDepartment" method="POST">
+                            <h6 class="heading-small text-muted mb-4">Department Information</h6>
+                            <div class="pl-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Name</label>
+                                            <input required type="text" id="input-username" name="department[name]" class="form-control form-control-alternative" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="select-college">Select college</label>
+                                            <select required class="form-control form-control-alternative" name="department[college]" id="select-college">
+                                                <%page.body.colleges.code.forEach(function (college) {%>
+                                                <option value="<%=college%>"><%=college%></option>
+                                                <%})%>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4" />
+                                <h4 class="alert-heading text-center text-monospace mb--2"><i class="text-danger">Note:</i> create college first to enroll a department</h4>
+                            <hr class="my-4" />
+                            <!-- Adding the head -->
+                            <h6 class="heading-small text-muted mb-4">Select Principal and Organiser</h6>
+                            <div class="pl-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Principal</label>
+                                            <input required type="number" id="input-principal" name="department[principal]" class="form-control form-control-alternative" placeholder="enter Principal EmpId">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Organiser</label>
+                                            <input required type="number" id="input-username" name="department[organiser]" class="form-control form-control-alternative" placeholder="Enter Organiser EmpId">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-lg btn-success my-3 text-center">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%include ../partials/assets2/footer.ejs%>
+    </div>
+</div>
+<!--end of main content-->
+<%include ../partials/assets2/ender.ejs%>
